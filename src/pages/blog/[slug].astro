@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+
+// Fetch all blog posts and define their static paths
+export async function getStaticPaths() {
+	const blogPosts = await getCollection('blog');
+	const routes = blogPosts.map(({ data: { slug } }) => ({
+		params: { slug },
+	}));
+	return routes;
+}
+
+const { slug } = Astro.params;
+const posts = await getCollection('blog');
+const post = posts.find(p => p.data.slug === slug);
+
+if (!post) {
+	throw new Error(`Post not found for slug: ${slug}`);
+}
+
+const { content, data } = post;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>
+			{data.title} | Sisir Adhikari | Full Stack Developer
+		</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com/" />
+		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+		<meta name="description" content="{data.excerpt}" />
+	</head>
+
+	<body class="flex justify-center bg-stone-100">
+		<div class="w-full max-w-4xl p-4">
+			<header class="bg-white p-4 mb-px">
+				<h1 class="text-2xl font-bold uppercase"><a href="/">Sisir.me</a></h1>
+			</header>
+			<main class="px-4 pt-4 pb-8 bg-white text-gray-700">
+				<article>
+					<h2>{data.title}</h2>
+					<small>Published on {data.publishDate.toDateString()}</small>
+					{content}
+				</article>
+			</main>
+			<footer class="text-sm p-4 text-center">
+				&copy; Sisir Kanti Adhikari. All rights reserved
+			</footer>
+		</div>
+	</body>
+</html>
