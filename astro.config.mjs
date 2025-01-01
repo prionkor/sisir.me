@@ -2,8 +2,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
-import cloudflare from '@astrojs/cloudflare';
-
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://sisir.me',
@@ -20,5 +18,5 @@ export default defineConfig({
 		assets: 'assets',
 	},
 
-	//   adapter: cloudflare(),
+	//   adapter: cloudflare(), // needed when server-side logic is present, kept for future reference
 });
