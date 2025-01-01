@@ -6,19 +6,19 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://sisir.me',
-  trailingSlash: 'never',
+	site: 'https://sisir.me',
+	trailingSlash: 'never',
 
-  integrations: [
-      tailwind({
-          nesting: true,
-      }),
+	integrations: [
+		tailwind({
+			nesting: true,
+		}),
 	],
 
-  build: {
-      format: 'directory',
-      assets: 'assets',
+	build: {
+		format: 'directory',
+		assets: 'assets',
 	},
 
-  adapter: cloudflare(),
+	//   adapter: cloudflare(),
 });
