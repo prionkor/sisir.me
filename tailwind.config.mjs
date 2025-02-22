@@ -2,11 +2,11 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {
-			// fontFamily: {
-			// 	sans: ['"Proxima Nova"', ...defaultTheme.fontFamily.sans],
-			// },
-		},
+		// extend: {
+		// 	fontFamily: {
+		// 		sans: ['"Proxima Nova"', ...defaultTheme.fontFamily.sans],
+		// 	},
+		// },
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/typography')],
 };

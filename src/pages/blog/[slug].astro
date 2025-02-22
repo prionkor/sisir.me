@@ -1,5 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
+import Prose from '../../components/Porse.astro';
+import { getCollection, render } from 'astro:content';
 
 // Fetch all blog posts and define their static paths
 export async function getStaticPaths() {
@@ -18,7 +19,8 @@ if (!post) {
 	throw new Error(`Post not found for slug: ${slug}`);
 }
 
-const { content, data } = post;
+const { data } = post;
+const { Content } = await render(post);
 ---
 
 <!doctype html>
@@ -41,9 +43,12 @@ const { content, data } = post;
 			</header>
 			<main class="px-4 pt-4 pb-8 bg-white text-gray-700">
 				<article>
-					<h2>{data.title}</h2>
-					<small>Published on {data.publishDate.toDateString()}</small>
-					{content}
+					<h2 class="text-4xl font-bold rounded-md pb-2">{data.title}</h2>
+					<small class="text-xs text-gray-500 italic">Published on {data.publishDate.toDateString()}</small>
+					<hr class="my-4" />
+					  <Prose>
+    <Content />
+  </Prose>
 				</article>
 			</main>
 			<footer class="text-sm p-4 text-center">
