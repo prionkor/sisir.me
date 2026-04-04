@@ -1,24 +1,25 @@
 ---
+import { render } from 'astro:content';
 import { getCollection } from 'astro:content';
 
 // Fetch all blog posts and define their static paths
 export async function getStaticPaths() {
 	const blogPosts = await getCollection('blog');
-	const routes = blogPosts.map(({ data: { slug } }) => ({
-		params: { slug },
+	const routes = blogPosts.map(({ id }) => ({
+		params: { id },
 	}));
 	return routes;
 }
 
-const { slug } = Astro.params;
+const { id } = Astro.params;
 const posts = await getCollection('blog');
-const post = posts.find(p => p.data.slug === slug);
+const post = posts.find(p => p.id === id);
 
 if (!post) {
-	throw new Error(`Post not found for slug: ${slug}`);
+	throw new Error(`Post not found for id: ${id}`);
 }
-
-const { content, data } = post;
+const { Content } = await render(post);
+const { data } = post;
 ---
 
 <!doctype html>
@@ -27,7 +28,7 @@ const { content, data } = post;
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>
-			{data.title} | Sisir Adhikari | Full Stack Developer
+			{data.title} | Senior Full Stack & SRE | MSc DevOps TU Dublin
 		</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com/" />
 		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
@@ -43,7 +44,9 @@ const { content, data } = post;
 				<article>
 					<h2>{data.title}</h2>
 					<small>Published on {data.publishDate.toDateString()}</small>
-					{content}
+					<div class="mt-4">
+						<Content />
+					</div>
 				</article>
 			</main>
 			<footer class="text-sm p-4 text-center">

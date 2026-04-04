@@ -99,10 +99,11 @@ const posts = await getCollection('blog');
 			</div>
 		</article>
 		<section class="flex-1 p-4 bg-stone-100 overflow-y-auto">
+			{console.log(posts)}
 			{
 				posts.map(post => (
 					<article class="bg-white m-4">
-						<a class="block p-4" href={'/blog/' + post.data.slug}>
+						<a class="block p-4" href={'/blog/' + post.id}>
 							<h3 class="text-xl font-bold rounded-md pb-2 text-sky-700">
 								{post.data.title}
 							</h3>
