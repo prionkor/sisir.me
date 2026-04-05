@@ -116,7 +116,6 @@ const posts = (await getCollection('blog')).sort(
 			</div>
 		</article>
 		<section class="flex-1 p-4 bg-stone-100 overflow-y-auto">
-			{console.log(posts)}
 			{
 				posts.map(post => (
 					<article class="bg-white m-4">
