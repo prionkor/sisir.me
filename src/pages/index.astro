@@ -39,6 +39,21 @@ const posts = await getCollection('blog');
 			href="/favicons/favicon-16x16.png"
 		/>
 		<link rel="manifest" href="/favicons/site.webmanifest" />
+		<!-- Google tag (gtag.js) -->
+		<script
+			type="text/partytown"
+			is:inline
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-KLHM84WSNK"></script>
+		<script is:inline type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-KLHM84WSNK');
+		</script>
 	</head>
 
 	<body class="md:flex md:h-screen">
