@@ -4,7 +4,9 @@ import photo from '../images/photo-full.jpg';
 
 import { getCollection } from 'astro:content';
 
-const posts = await getCollection('blog');
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+);
 ---
 
 <!doctype html>
