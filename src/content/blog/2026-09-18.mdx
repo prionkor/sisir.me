@@ -1,0 +1,131 @@
+---
+title: Retro Games - Rebuilding a Piece of my Childhood
+excerpt: I grew up playing simple black-and-white Brick Games in the nineties. Decades later, I decided to rebuild one from scratch, not to make a modern game, but to recreate a small piece of my childhood. This is the story of that little journey, one pixel at a time.
+
+publishDate: 2026-09-18
+slug: retro-games-rebuilding-a-piece-of-my-childhood
+tags:
+  - Game
+  - Golang
+  - Personal
+  - Story
+  - Hobby
+---
+
+import { Picture } from 'astro:assets';
+
+import image1 from '../../images/blog/retro-games-ss-1.png';
+import image2 from '../../images/blog/retro-games-ss-2.png';
+
+## A Childhood Without the Internet
+
+I grew up in a small town in Bangladesh. It was the nineties, a time when we didn't have the internet, smartphones, or computers at home. Childhood was much closer to nature. We spent our days outside, wandering around, playing with friends, and finding our own ways to have fun.
+
+I remember some of my friends having small handheld gaming devices with black-and-white, pixelated screens. I can still picture those devices. They had the words **"Brick Games"** written somewhere on the body, and for me, they felt like tiny pieces of magic.
+
+There was something fascinating about those little machines. The screens were crude, the games were simple, and yet we could spend hours playing them.
+
+## Five Taka at a Time
+
+My mother used to give me a daily allowance of 5 BDT, mostly for taking a rickshaw to school.
+
+School was about a 30-minute walk from home, though, so sometimes my brother and I would save that money instead of spending it on the rickshaw. Five taka doesn't sound like much today. Back then, however, those small amounts mattered. We kept saving.
+
+Eventually, I had enough to buy one of those Brick Games devices. It cost **220 BDT**. I still remember the day I finally bought it. I remember the excitement more than the actual game. I remember holding the package carefully on the way home, with both hands, afraid that somehow I might drop it or damage it.
+
+It was such a small thing. But to that little boy, carrying that package home felt like carrying something incredibly precious.
+
+## Missing That Little Boy
+
+I am now in my late thirties. I have become a reasonably accomplished software engineer, and I spend a large part of my life sitting in front of a computer. I don't complain about it. I have built a career, a family, and a life that I am grateful for. But life is not always easy. There is work, responsibility, family, bills, decisions, and all the ordinary complications that come with getting older.
+
+Sometimes I miss that little boy. I think most of us do, in some way. We remember a time when life felt lighter. When our days seemed longer. When a small thing could make us incredibly happy. When we could wander around like a free bird without thinking too much about tomorrow.
+
+Those memories don't disappear completely. They just get buried under years of adult life.
+
+## Rebuilding Something I Remember
+
+Recently, over a weekend, I had an idea. What if I tried to recreate one of those old games?
+
+<div class="flex flex-col md:flex-row gap-4">
+    <div class="w-full md:flex-1">
+        <Picture
+            src={image1}
+            formats={['avif', 'webp']}
+            class="w-full h-auto"
+            alt="childhood game 1"
+        />
+    </div>
+
+    <div class="w-full md:flex-1">
+        <Picture
+            src={image2}
+            formats={['avif', 'webp']}
+            class="w-full h-auto"
+            alt="childhood game 2"
+        />
+    </div>
+
+</div>
+
+I know there are probably countless versions of these games already available. I could have downloaded one and played it within minutes. But that wasn't really the point. I didn't want just to play the game.
+
+I wanted to **recreate a small piece of my childhood**.
+
+There was also another reason I found the idea interesting. I am not a game developer. I have never considered myself one. But throughout my career, I have repeatedly found myself wandering into areas I didn't fully understand. Somehow, I became comfortable with not knowing.
+
+Whenever something unfamiliar caught my interest, I would usually try to understand it by building something myself. So I decided to do the same thing this time.
+
+## Starting From Nothing
+
+I decided that I would build it from the ground up. Not because it was necessary, and certainly not because it was the fastest way to make a game. I simply wanted to understand what happens underneath.
+
+I wanted to write a very small and very dumb game engine. I wanted the pieces to be simple. I wanted the game itself to be separated from the platform it runs on. I kept coming back to a principle that has been part of my software engineering career for a long time: **separation of concerns**.
+
+The game shouldn't need to know whether it is running in a browser or somewhere else. The platform shouldn't need to know how the game works internally. I wanted to see how far I could take that idea while keeping everything small enough that I could still understand every piece.
+
+## A Little Bit of Go
+
+I chose Golang for the project. The game is currently being compiled to WebAssembly so that I can play it in a browser. That makes it easy to experiment with the engine without having to build a full desktop application.
+
+The game itself is still very simple. There is a small pixelated car. There is a road. There are other cars. They move, the player moves, and eventually things go wrong.
+
+There is even a little game-over animation inspired by the old experience I remember. It is nowhere near a finished game. And that's perfectly fine.
+
+## Building It Is the Fun Part
+
+The interesting thing is that I am enjoying the process much more than I expected. Every small thing has become a little experiment.
+
+- How should a pixel be represented?
+- How should the screen be drawn?
+- How should the game know about keyboard input without knowing anything about the browser?
+- How should moving objects interact?
+- How should the game transition from one state to another?
+
+None of these questions are particularly difficult by themselves. But when you start with almost nothing, even simple things become interesting. And occasionally, something works for the first time and I get that small feeling of excitement again. Maybe that is part of why I wanted to do this in the first place.
+
+## A Small Journey Back
+
+I don't know exactly where this project will end up. Maybe I will eventually recreate several of the games I remember. Maybe I will build a tiny collection of them. Maybe I will lose interest and leave it unfinished.
+
+I'm not particularly concerned about that. The project has already given me something. For a little while, I get to be that kid again. Not completely, of course. I still have work waiting, responsibilities waiting, and a long list of things that need to be done.
+
+But somewhere between writing a few lines of code and watching a tiny pixelated car move across the screen, I can remember what it felt like to be excited about something very simple.
+
+And maybe, when the game is finally finished, I will sit down and play it. Perhaps I'll remember a few of those forgotten memories that have been buried somewhere for all these years.
+
+## I Will Keep Building
+
+The first game is still under development. I am not trying to make anything impressive. I am not trying to compete with modern games. I am simply curious about where this little experiment will take me.
+
+I'll keep updating this post as the project moves forward.
+
+For now, this is just a small journey back to something I remember from childhood.
+
+A tiny game.
+
+A few pixels.
+
+And a little piece of the boy who once carried a **220 taka Brick Game home with both hands**.
+
+---
